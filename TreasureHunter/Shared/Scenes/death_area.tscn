@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvn33wc4gyr1j"]
+
+[ext_resource type="Script" path="res://Shared/Scripts/DeathArea.gd" id="1_57aj0"]
+[ext_resource type="AudioStream" uid="uid://fp0aviwelkn1" path="res://Shared/Media/Sounds/drop_004.ogg" id="2_1l47d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e15i7"]
+size = Vector2(1457, 35)
+
+[node name="DeathArea" type="Area2D"]
+script = ExtResource("1_57aj0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(605.5, 7.5)
+shape = SubResource("RectangleShape2D_e15i7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1l47d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

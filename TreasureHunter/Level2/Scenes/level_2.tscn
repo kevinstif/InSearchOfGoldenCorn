@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://qebya5gnso73"]
+
+[ext_resource type="PackedScene" uid="uid://ds7qp0gyuawch" path="res://Level2/Scenes/map_2.tscn" id="1_6a31c"]
+[ext_resource type="PackedScene" uid="uid://cknc5exr6uxce" path="res://Shared/Scenes/player.tscn" id="6_tgg16"]
+[ext_resource type="PackedScene" uid="uid://dn66cf3q3bmb6" path="res://Shared/Scenes/score_tracer.tscn" id="7_417f3"]
+[ext_resource type="PackedScene" uid="uid://cf643c58ln8n4" path="res://Shared/Scenes/coin.tscn" id="8_rhrwr"]
+[ext_resource type="PackedScene" uid="uid://3vyhbbq5hhri" path="res://Shared/Scenes/enemy.tscn" id="14_hs8ys"]
+[ext_resource type="AudioStream" uid="uid://cst4jqbow5fxc" path="res://Shared/Media/Music/POL-king-of-coins-short.wav" id="15_7qjy6"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_6a31c")]
+
+[node name="Player" parent="." instance=ExtResource("6_tgg16")]
+position = Vector2(40, 120)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 1136
+limit_bottom = 216
+
+[node name="ScoreTracer" parent="Player" instance=ExtResource("7_417f3")]
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("8_rhrwr")]
+position = Vector2(921, 90)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("8_rhrwr")]
+position = Vector2(194, 105)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("8_rhrwr")]
+position = Vector2(426, 88)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("8_rhrwr")]
+position = Vector2(712, 88)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("8_rhrwr")]
+position = Vector2(1012, 120)
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemies" instance=ExtResource("14_hs8ys")]
+position = Vector2(139, 103)
+
+[node name="enemy2" parent="enemies" instance=ExtResource("14_hs8ys")]
+position = Vector2(787, 104)
+
+[node name="enemy3" parent="enemies" instance=ExtResource("14_hs8ys")]
+position = Vector2(906, 88)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_7qjy6")
+volume_db = -25.06
+autoplay = true

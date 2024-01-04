@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxohitbueabop"]
+
+[ext_resource type="PackedScene" uid="uid://d3mvracr6oae6" path="res://Level1/Scenes/map_1.tscn" id="1_uqyrn"]
+[ext_resource type="PackedScene" uid="uid://cknc5exr6uxce" path="res://Shared/Scenes/player.tscn" id="2_whksk"]
+[ext_resource type="PackedScene" uid="uid://dn66cf3q3bmb6" path="res://Shared/Scenes/score_tracer.tscn" id="7_jstny"]
+[ext_resource type="PackedScene" uid="uid://cf643c58ln8n4" path="res://Shared/Scenes/coin.tscn" id="7_o0vm0"]
+[ext_resource type="PackedScene" uid="uid://3vyhbbq5hhri" path="res://Shared/Scenes/enemy.tscn" id="12_epgea"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_uqyrn")]
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("7_o0vm0")]
+position = Vector2(138, 120)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("7_o0vm0")]
+position = Vector2(247, 87)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("7_o0vm0")]
+position = Vector2(426, 88)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("7_o0vm0")]
+position = Vector2(712, 88)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("7_o0vm0")]
+position = Vector2(969, 104)
+
+[node name="Player" parent="." instance=ExtResource("2_whksk")]
+position = Vector2(9, 119)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 1136
+limit_bottom = 216
+
+[node name="ScoreTracer" parent="Player" instance=ExtResource("7_jstny")]
+
+[node name="enemys" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemys" instance=ExtResource("12_epgea")]
+position = Vector2(232, 88)
+
+[node name="enemy2" parent="enemys" instance=ExtResource("12_epgea")]
+position = Vector2(359, 104)
+
+[node name="enemy3" parent="enemys" instance=ExtResource("12_epgea")]
+position = Vector2(939, 104)
